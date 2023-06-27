@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dot {
+            width: 20px;
+            height: 20px;
+            margin: 1px;
+            border-radius: 2px;
+            background-color: slategray;
+            transition: all 2s ease;
+        }
+
+        .dot:hover {
+            transition-duration: 0s;
+        }
+
+        .container {
+            width: 40%;
+            height: 90vh;
+            border: 1px solid;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            overflow: hidden;
+            background-color: rgb(91, 101, 112);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container"></div>
+
+    <!-- javascript -->
+    <!-- <script>
+        let container = document.querySelector('.container')
+        let clr = ['yellow', 'red', 'green', 'white']
+        let square = 600
+        for (let i = 0; i < square; i++) {
+            let dot = document.createElement('div')
+            dot.classList.add('dot')
+            dot.addEventListener('mouseenter', function () {
+                let clrs = clr[Math.floor(Math.random() * clr.length)]
+                dot.style.backgroundColor = clrs
+            })
+            dot.addEventListener('mouseout', function () {
+                dot.style.backgroundColor = 'slategray'
+            })
+            container.appendChild(dot)
+        }
+
+    </script> -->
+
+
+    <!-- jquery -->
+    
+    <script>
+        let container = $('.container')
+        const colors = ['#e74c3c', '#8e44ad', '#3498db', '#e67e22', '#2ecc71']
+        let square = 600
+        var clr
+        for (let i = 0; i < square; i++) {
+            let dot = $('<div>')
+            console.log(dot);
+            $(dot).addClass('dot')
+            $(dot).on('mouseover', function () {
+                clr = colors[Math.floor(Math.random() * colors.length)]
+                $(dot).css({ backgroundColor: clr })
+            })
+            $(dot).on('mouseout', function () {
+                $(dot).css({ backgroundColor: 'slategray' })
+            })
+            $(container).append($(dot))
+        }
+    </script>
+</body>
+
+</html>
